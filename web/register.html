@@ -1,0 +1,115 @@
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图书借阅管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Trendy Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <!-- //web font -->
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $(".form").slideDown(500);
+
+            $("#registered-content").show(500);
+        });
+        function register() {
+            var username =document.getElementById("username");
+            var pwd = document.getElementById("pwd");
+            var pwd2 = document.getElementById("pwd2");
+            var email = document.getElementById("email");
+
+            if(pwd.value === pwd2.value){
+
+                var params = {
+                    'name':username,
+                    'pwd':pwd,
+                    'email':email
+                };
+
+                var tempForm = document.createElement("form");
+                tempForm.action = "register.jsp";
+                tempForm.method = "post";
+                tempForm.style.display="none";
+
+                tempForm.target = "_blank";
+
+
+                for (var x in params) {
+                    var opt = document.createElement("input");
+                    opt.type = "text";
+                    opt.name = x;
+                    opt.value = params[x];
+                    tempForm.appendChild(opt);
+                }
+
+                var opt = document.createElement("input");
+                opt.type = "submit";
+                tempForm.appendChild(opt);
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+                document.body.removeChild(tempForm);
+
+            }else {
+                alert("两次密码输入不相同");
+            }
+        }
+    </script>
+</head>
+<body>
+<!-- main -->
+<div class="agileits-main" style="cursor:pointer";>
+    <div class="w3top-nav">
+        <div class="w3top-nav-left">
+            <h1><a href="index.html">图书借阅管理系统</a></h1>
+        </div>
+        <div class="w3top-nav-right">
+            <ul>
+                <li><a href="index.html" class="active">主页</a></li>
+                <li><a href="student.html">学生登录</a></li>
+                <li><a href="admin.html">管理员登录</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="form">
+        <div id="registered">注册</div>
+
+        <div class="fix"></div>
+
+        <div id="registered-content">
+            <div class="inp"><input id="username" type="text" placeholder="请输入用户名" /></div>
+            <div class="inp"><input id="pwd" type="password" placeholder="请输入密码" /></div>
+            <div class="inp"><input id="pwd2" type="password" placeholder="请再次输入密码" /></div>
+            <div class="inp"><input id="email" type="email" placeholder="电子邮箱" /></div>
+            <div class="login" onclick="register()">立即注册</div>
+        </div>
+    </div>
+
+</div>
+<!-- //main -->
+<!-- copyright -->
+<!--	<div class="copyright w3-agile">-->
+<!--		<p>© 2018 Trendy Login Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>-->
+<!--	</div>-->
+<!-- //copyright -->
+</body>
+</html>
