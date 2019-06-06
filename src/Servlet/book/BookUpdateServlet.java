@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet(name = "BookUpdateServlet", value = {"/BookUpdateServlet"})
 public class BookUpdateServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         request.setCharacterEncoding("utf-8");
         String bookNo = request.getParameter("book_no");
         String bookName = request.getParameter("book_name");
@@ -32,7 +32,8 @@ public class BookUpdateServlet extends HttpServlet {
 
             request.setAttribute("book_no",book.getNo());
             request.setAttribute("book_name",book.getName());
-            request.setAttribute("book_author",book.getIsbn());
+            request.setAttribute("book_author",book.getAuthor());
+            request.setAttribute("book_isbn",book.getIsbn());
             request.setAttribute("book_description",book.getDescription());
             request.setAttribute("book_lent",book.getLent());
 
@@ -50,7 +51,7 @@ public class BookUpdateServlet extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        doPost(request,response);
     }
 }
