@@ -30,22 +30,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             $("#registered-content").show(500);
         });
+
+
         function register() {
             var username =document.getElementById("username");
             var pwd = document.getElementById("pwd");
             var pwd2 = document.getElementById("pwd2");
             var email = document.getElementById("email");
 
+            var params = {
+                'name':username.value,
+                'pwd':pwd.value,
+                'email':email.value
+            };
+
             if(pwd.value === pwd2.value){
 
-                var params = {
-                    'name':username,
-                    'pwd':pwd,
-                    'email':email
-                };
-
                 var tempForm = document.createElement("form");
-                tempForm.action = "register.jsp";
+                tempForm.action = "RegisterServlet";
                 tempForm.method = "post";
                 tempForm.style.display="none";
 
@@ -59,6 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     opt.value = params[x];
                     tempForm.appendChild(opt);
                 }
+
 
                 var opt = document.createElement("input");
                 opt.type = "submit";

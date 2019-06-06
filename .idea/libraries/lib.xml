@@ -2,6 +2,7 @@
   <library name="lib">
     <CLASSES>
       <root url="file://D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.15.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
