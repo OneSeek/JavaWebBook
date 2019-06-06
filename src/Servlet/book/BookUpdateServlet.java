@@ -18,9 +18,12 @@ public class BookUpdateServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String bookNo = request.getParameter("book_no");
         String bookName = request.getParameter("book_name");
-        String bookQuantity = request.getParameter("book_quantity");
+        String book_author = request.getParameter("book_author");
+        String book_isbn = request.getParameter("book_isbn");
+        String book_description = request.getParameter("book_description");
+        String book_lent = request.getParameter("book_lent");
 
-        Book book = new Book();
+        Book book = new Book(bookNo,bookName,book_author,book_isbn,book_description,book_lent);
         BookDao bookDao = new BookDao();
         String outMassage;
         try {
@@ -29,6 +32,12 @@ public class BookUpdateServlet extends HttpServlet {
 
             request.setAttribute("book_no",book.getNo());
             request.setAttribute("book_name",book.getName());
+            request.setAttribute("book_author",book.getIsbn());
+            request.setAttribute("book_description",book.getDescription());
+            request.setAttribute("book_lent",book.getLent());
+
+
+
             request.setAttribute("outMassage",outMassage);
 
             request.getRequestDispatcher("admin/book/show.jsp").forward(request,response);
